@@ -31,6 +31,21 @@ export function generateRandomArray(): ArrayElement[] {
   return randomArray;
 }
 
+export function generateRandomList(): string[] {
+  const minLen = 3;
+  const maxLen = 7;
+  const arrayLength = Math.floor(Math.random() * (maxLen - minLen + 1)) + minLen;
+  
+  const randomList: string[] = [];
+  
+  for (let i = 0; i < arrayLength; i++) {
+    const randomValue = Math.floor(Math.random() * 9999) + 1;
+    randomList.push(randomValue.toString());
+  }
+  
+  return randomList;
+}
+
 
 //функции-генераторы для сортировок, визуализирующие процесс сортировки с помощью изменения состояния элементов массива на каждом шаге
 export function* bubbleSort(arr: ArrayElement[], direction: Direction): Generator<ArrayElement[]> {
