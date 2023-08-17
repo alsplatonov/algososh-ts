@@ -9,13 +9,11 @@ import { Direction } from "../../types/direction";
 import { Column } from "../ui/column/column";
 import { setDelay, generateRandomArray, bubbleSort, selectSort } from "../../utils/utils";
 import { SHORT_DELAY_IN_MS } from "../../constants/delays";
+import { TArrayElement } from "../../types/arrayElement";
 
 export const SortingPage: React.FC = () => {
 
-  type ArrayElement = { value: number, state: ElementStates };
-
-
-  const [array, setArray] = useState<ArrayElement[]>([]);
+  const [array, setArray] = useState<TArrayElement[]>([]);
   const [sortType, setSortType] = useState<'Пузырьком' | 'Выбором'>('Пузырьком'); //по-умолчанию пузырьковая
   const [sortDirection, setSortDirection] = useState<Direction>(Direction.Ascending); //по-умолчанию по возрастанию
   const [isAscendingInProgress, setIsAscendingInProgress] = useState(false);
@@ -39,7 +37,7 @@ export const SortingPage: React.FC = () => {
     setIsInProgress(true);
     direction === Direction.Ascending ? setIsAscendingInProgress(true) : setIsDescendingInProgress(true);
 
-    let generator: Generator<ArrayElement[]>;
+    let generator: Generator<TArrayElement[]>;
 
     generator = sortType === 'Пузырьком'
       ? bubbleSort(array, direction)

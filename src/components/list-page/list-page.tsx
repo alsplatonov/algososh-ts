@@ -10,15 +10,8 @@ import { ElementStates } from "../../types/element-states";
 import { DELAY_IN_MS, SHORT_DELAY_IN_MS } from "../../constants/delays";
 import { setDelay, generateRandomList } from "../../utils/utils";
 import { ListNode } from "./list";
+import { IListState } from "../../types/linkedList";
 
-
-export interface IListState<T> {
-  item: T;
-  state: ElementStates;
-  insertProgress: boolean;
-  removeProgress: boolean;
-  tempItem: T;
-}
 
 export const ListPage: React.FC = () => {
   const [inputValue, setInputValue] = useState("");

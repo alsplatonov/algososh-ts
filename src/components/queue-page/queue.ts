@@ -1,10 +1,6 @@
 import { ElementStates } from "../../types/element-states";
+import { IQueueItem } from "../../types/queue";
 
-// Определяем интерфейс для элемента очереди
-export interface IQueueItem<T> {
-  data: T | null;
-  state: ElementStates;
-}
 
 // Класс Queue
 export class Queue<T> {

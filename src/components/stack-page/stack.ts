@@ -1,9 +1,5 @@
 import { ElementStates } from "../../types/element-states";
-
-export interface IStackState<T> {
-  item: T;
-  state: ElementStates;
-}
+import { IStackState } from "../../types/stack";
 
 export class Stack<T> {
   private items: IStackState<T>[]; 

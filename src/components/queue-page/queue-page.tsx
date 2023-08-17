@@ -4,10 +4,11 @@ import { SolutionLayout } from "../ui/solution-layout/solution-layout";
 import { Input } from "../ui/input/input";
 import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
-import { Queue, IQueueItem } from "./queue";
+import { Queue } from "./queue";
 import { ElementStates } from "../../types/element-states";
 import { DELAY_IN_MS, SHORT_DELAY_IN_MS } from "../../constants/delays";
 import { setDelay } from "../../utils/utils";
+import { IQueueItem } from "../../types/queue";
 
 export const QueuePage: React.FC = () => {
   const [value, setValue] = useState("");

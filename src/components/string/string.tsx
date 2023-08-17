@@ -7,11 +7,8 @@ import { Circle } from "../ui/circle/circle";
 import { ElementStates } from "../../types/element-states";
 import { reverseString, setDelay } from "../../utils/utils";
 import { DELAY_IN_MS, SHORT_DELAY_IN_MS } from "../../constants/delays";
+import { IString } from "../../types/string";
 
-export interface IString {
-  letter: string;
-  state: ElementStates;
-}
 
 export const StringComponent: FC = () => {
   const [inputStr, setInputStr] = useState("");
