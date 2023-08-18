@@ -1,0 +1,23 @@
+.form {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  gap: 12px;
+  padding-bottom: 120px;
+  justify-content: center;
+}
+
+.input {
+  box-sizing: border-box;
+  max-width: 377px;
+  max-height: 86px;
+  margin: 0;
+  padding: 0;
+}
+
+.circles {
+  margin: 0 auto;
+  display: flex;
+  width: fit-content;
+  gap: 16px;
+}
