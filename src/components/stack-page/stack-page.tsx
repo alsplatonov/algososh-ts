@@ -8,23 +8,22 @@ import { Circle } from "../ui/circle/circle";
 import { Stack } from "./stack";
 import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 import { setDelay } from "../../utils/utils";
+import { IStackState } from "../../types/stack";
 
-interface IStackState<T> {
-  item: T;
-  state: ElementStates;
-}
 
 export const StackPage: FC = () => {
   const [value, setValue] = useState("");
-  const [inProgress, setInProgress] = useState(false);
+  const [addInProgress, setAddInProgress] = useState(false);
+  const [deleteInProgress, setDeleteInProgress] = useState(false);
   const [stack, setStack] = useState<Stack<string>>(new Stack<string>());
   const [stackState, setStackState] = useState<IStackState<string>[]>([]);
 
 
   const addItem = async (e: FormEvent, item: string) => {
     e.preventDefault();
-    if (!value || stackState.length > 19 || inProgress) return;
-    setInProgress(true);
+    if (!value || stackState.length > 19 || addInProgress) return;
+    setAddInProgress(true);
+    setDeleteInProgress(false);
 
     // Добавить элемент в стек
     stack.push(value);
@@ -52,12 +51,14 @@ export const StackPage: FC = () => {
       });
     }
 
-    setInProgress(false);
+    setAddInProgress(false);
     setValue("");
   };
 
 
   const deleteItem = async () => {
+    setAddInProgress(false);
+    setDeleteInProgress(true);
     const lastAddedItem = stack.peek();
 
     if (lastAddedItem) {
@@ -74,7 +75,7 @@ export const StackPage: FC = () => {
         await setDelay(SHORT_DELAY_IN_MS);
 
         stack.pop();
-
+        setDeleteInProgress(false);
         setStackState(prevState => prevState.slice(0, -1));
       }
     }
@@ -92,21 +93,21 @@ export const StackPage: FC = () => {
             value={value}
           />
           <Button
-            disabled={value.length <= 0 || stackState.length > 19 || inProgress}
+            disabled={value.length <= 0 || stackState.length > 19 || addInProgress || deleteInProgress}
             onClick={(e) => {
               addItem(e, value);
             }}
-            isLoader={false}
+            isLoader={addInProgress}
             text={"Добавить"}
           />
           <Button
-            disabled={stack.getSize() <= 0 || inProgress}
+            disabled={stack.getSize() <= 0 || addInProgress || deleteInProgress}
             onClick={deleteItem}
-            isLoader={false}
+            isLoader={deleteInProgress}
             text={"Удалить"}
           />
           <Button
-            disabled={stack.getSize() <= 0 || inProgress}
+            disabled={stack.getSize() <= 0 || addInProgress || deleteInProgress}
             text={"Очистить"}
             onClick={() => {
               stack.clear();

@@ -12,7 +12,8 @@ import { IQueueItem } from "../../types/queue";
 
 export const QueuePage: React.FC = () => {
   const [value, setValue] = useState("");
-  const [inProgress, setInProgress] = useState(false);
+  const [addInProgress, setAddInProgress] = useState(false);
+  const [deleteInProgress, setDeleteInProgress] = useState(false);
   const queue = useRef(new Queue<string>(7));
 
   const initialQueueState = Array.from({ length: 7 }, () => ({
@@ -37,10 +38,10 @@ export const QueuePage: React.FC = () => {
 
   const addItem = async (e: FormEvent, item: string) => {
     e.preventDefault();
-    if (!item || queueState.length >= 7 || inProgress) return;
+    if (!item || queueState.length >= 7 || addInProgress) return;
 
-    setInProgress(true);
-
+    setAddInProgress(true);
+    setDeleteInProgress(false);
     // Добавить элемент
     queue.current.enqueue(item);
 
@@ -57,15 +58,16 @@ export const QueuePage: React.FC = () => {
       )
     );
 
-    setInProgress(false);
+    setAddInProgress(false);
     setValue("");
   };
 
   const deleteItem = async () => {
-    if (queue.current.isEmpty() || inProgress) {
+    if (queue.current.isEmpty() || deleteInProgress) {
       return;
     }
-    setInProgress(true);
+    setDeleteInProgress(true);
+    setAddInProgress(false);
     const headIndex = queue.current.getHeadIndex();
     setQueueState((prevQueueState) => {
       const newState = [...prevQueueState];
@@ -74,10 +76,10 @@ export const QueuePage: React.FC = () => {
     });
 
     await setDelay(SHORT_DELAY_IN_MS); // Используем функцию setDelay
-
+    // удалить элемент
     queue.current.dequeue();
     setQueueState([...setState()]);
-    setInProgress(false);
+    setDeleteInProgress(false);
   };
 
   const clearQueue = async () => {
@@ -98,19 +100,19 @@ export const QueuePage: React.FC = () => {
             value={value}
           />
           <Button
-            disabled={value.length <= 0 || inProgress}
+            disabled={value.length <= 0 || addInProgress || deleteInProgress}
             onClick={(e) => addItem(e, value)}
-            isLoader={false}
+            isLoader={addInProgress}
             text={"Добавить"}
           />
           <Button
-            disabled={queue.current.isEmpty() || inProgress}
+            disabled={queue.current.isEmpty() || deleteInProgress || addInProgress}
             onClick={deleteItem}
-            isLoader={false}
+            isLoader={deleteInProgress}
             text={"Удалить"}
           />
           <Button
-            disabled={(queue.current.isEmpty() && queueState.every((item) => item.data === "")) || inProgress}
+            disabled={(queue.current.isEmpty() && queueState.every((item) => item.data === "")) || addInProgress || deleteInProgress}
             text={"Очистить"}
             onClick={clearQueue}
           />

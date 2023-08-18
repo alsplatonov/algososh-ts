@@ -206,6 +206,7 @@ export const ListPage: React.FC = () => {
         listInstance.insertAtIndex(new ListNode(value), index);
         setListState([...listStateCopy]);
         setInputValue("");
+        setInputIndex("");
         setInsertAtIndexInProgress(false);
       }
     };
@@ -244,7 +245,7 @@ export const ListPage: React.FC = () => {
 
         listStateCopy.splice(currentIndex, 1);
         setListState([...listStateCopy]);
-        setInputValue("");
+        setInputIndex("");
 
         for (let i = 0; i < index; i++) {
           listStateCopy[i].state = ElementStates.Default;
@@ -266,7 +267,17 @@ export const ListPage: React.FC = () => {
     await removeNextItem(currentIndex);
     await setDelay(SHORT_DELAY_IN_MS);
     setRemoveAtIndexInProgress(false);
+    setInputValue("");
   };
+
+
+  const isInProgress =
+    insertToHeadInProgress ||
+    insertToTailInProgress ||
+    removeHeadInProgress ||
+    removeTailInProgress ||
+    insertAtIndexInProgress ||
+    removeAtIndexInProgress ;
 
 
   return (
@@ -286,11 +297,7 @@ export const ListPage: React.FC = () => {
             <Button
               disabled={
                 inputValue.length <= 0 ||
-                insertAtIndexInProgress ||
-                insertToTailInProgress ||
-                removeHeadInProgress ||
-                removeAtIndexInProgress ||
-                removeTailInProgress
+                isInProgress
               }
               onClick={() => insertHead(inputValue)}
               isLoader={insertToHeadInProgress}
@@ -299,11 +306,7 @@ export const ListPage: React.FC = () => {
             <Button
               disabled={
                 inputValue.length <= 0 ||
-                insertAtIndexInProgress ||
-                insertToHeadInProgress ||
-                removeHeadInProgress ||
-                removeAtIndexInProgress ||
-                removeTailInProgress
+                isInProgress
               }
               onClick={() => insertTail(inputValue)}
               isLoader={insertToTailInProgress}
@@ -312,11 +315,7 @@ export const ListPage: React.FC = () => {
             <Button
               disabled={
                 listState.length < 2 ||
-                insertAtIndexInProgress ||
-                insertToHeadInProgress ||
-                insertToTailInProgress ||
-                removeAtIndexInProgress ||
-                removeTailInProgress
+                isInProgress
               }
               isLoader={removeHeadInProgress}
               text={"Удалить из head"}
@@ -325,11 +324,7 @@ export const ListPage: React.FC = () => {
             <Button
               disabled={
                 listState.length < 2 ||
-                insertAtIndexInProgress ||
-                insertToHeadInProgress ||
-                insertToTailInProgress ||
-                removeAtIndexInProgress ||
-                removeHeadInProgress
+                isInProgress
               }
               isLoader={removeTailInProgress}
               text={"Удалить из tail"}
@@ -349,13 +344,9 @@ export const ListPage: React.FC = () => {
             />
             <Button
               disabled={
-                inputValue.length <= 0 ||
+                inputValue.length <= 0 || Number(inputIndex) > list.current.getData().array.length - 1 || Number(inputIndex) < 0 ||
                 !inputIndex ||
-                insertToHeadInProgress ||
-                insertToTailInProgress ||
-                removeHeadInProgress ||
-                removeAtIndexInProgress ||
-                removeTailInProgress
+                isInProgress
               }
               onClick={() => {
                 if (Number(inputIndex) > listState.length) {
@@ -370,13 +361,9 @@ export const ListPage: React.FC = () => {
             />
             <Button
               disabled={
-                listState.length < 2 ||
+                listState.length < 2 || Number(inputIndex) > list.current.getData().array.length - 1 || Number(inputIndex) < 0 ||
                 !inputIndex ||
-                insertAtIndexInProgress ||
-                insertToHeadInProgress ||
-                insertToTailInProgress ||
-                removeTailInProgress ||
-                removeHeadInProgress
+                isInProgress
               }
               onClick={() => {
                 if (Number(inputIndex) > listState.length) {
