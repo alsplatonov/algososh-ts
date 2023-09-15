@@ -4,17 +4,17 @@ import { Button } from "./button";
 
 describe('Button Component', () => {
   it('renders a button with text', () => {
-    const { tree } = render(<Button text="Click me" />);
+    const { asFragment } = render(<Button text="Click me" />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('renders a button without text', () => {
-    const { tree } = render(<Button />);
+    const { asFragment } = render(<Button />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('renders a disabled button', () => {
-    const { tree } = render(<Button text="Disabled" disabled />);
+    const { asFragment } = render(<Button text="Disabled" disabled />);
     expect(asFragment()).toMatchSnapshot();
   });
 

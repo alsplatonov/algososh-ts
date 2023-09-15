@@ -47,6 +47,7 @@
   "devDependencies": {
     "@testing-library/react": "^11.2.7",
     "@types/react-router-dom": "^5.3.3",
+    "@types/react-test-renderer": "^18.0.1",
     "cypress": "^12.17.4",
     "eslint-plugin-cypress": "^2.14.0",
     "fetch-mock": "^9.11.0",
