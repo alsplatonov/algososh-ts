@@ -53,30 +53,43 @@ export function* bubbleSort(arr: ArrayElement[], direction: Direction): Generato
 
   for (let i = 0; i < arrayInProgress.length - 1; i++) {
     for (let j = 0; j < arrayInProgress.length - i - 1; j++) {
-      arrayInProgress[j].state = ElementStates.Changing;
-      arrayInProgress[j + 1].state = ElementStates.Changing;
+      if (arrayInProgress[j]) {
+        arrayInProgress[j].state = ElementStates.Changing;
+      }
+      if (arrayInProgress[j + 1]) {
+        arrayInProgress[j + 1].state = ElementStates.Changing;
+      }
       yield arrayInProgress.slice(); // Создаем копию массива и передаем ее для визуализации
 
       const shouldSwap =
-        (direction === Direction.Ascending && arrayInProgress[j].value > arrayInProgress[j + 1].value) ||
-        (direction === Direction.Descending && arrayInProgress[j].value < arrayInProgress[j + 1].value);
+        (direction === Direction.Ascending && arrayInProgress[j]?.value > arrayInProgress[j + 1]?.value) ||
+        (direction === Direction.Descending && arrayInProgress[j]?.value < arrayInProgress[j + 1]?.value);
 
       if (shouldSwap) {
         [arrayInProgress[j], arrayInProgress[j + 1]] = [arrayInProgress[j + 1], arrayInProgress[j]];
       }
 
-      arrayInProgress[j].state = ElementStates.Default;
-      arrayInProgress[j + 1].state = ElementStates.Default;
+      if (arrayInProgress[j]) {
+        arrayInProgress[j].state = ElementStates.Default;
+      }
+      if (arrayInProgress[j + 1]) {
+        arrayInProgress[j + 1].state = ElementStates.Default;
+      }
       yield arrayInProgress.slice(); // Создаем копию массива и передаем ее для визуализации
     }
 
-    arrayInProgress[arrayInProgress.length - i - 1].state = ElementStates.Modified;
+    if (arrayInProgress[arrayInProgress.length - i - 1]) {
+      arrayInProgress[arrayInProgress.length - i - 1].state = ElementStates.Modified;
+    }
     yield arrayInProgress.slice(); // Создаем копию массива и передаем ее для визуализации
   }
 
-  arrayInProgress[0].state = ElementStates.Modified;
+  if (arrayInProgress[0]) {
+    arrayInProgress[0].state = ElementStates.Modified;
+  }
   yield arrayInProgress.slice(); // Создаем копию массива и передаем ее для визуализации
 }
+
 
 
 export function* selectSort(arr: ArrayElement[], direction: Direction): Generator<ArrayElement[]> {
