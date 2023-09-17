@@ -66,6 +66,7 @@ export const FibonacciPage: FC = () => {
     <SolutionLayout title="Последовательность Фибоначчи">
       <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
         <Input
+          data-testid="input"
           extraClass={styles.input}
           maxLength={19}
           max={19}
@@ -79,6 +80,7 @@ export const FibonacciPage: FC = () => {
           disabled={disableInput}
         />
         <Button
+          data-testid="calculate-button"
           onClick={onClick}
           text={"Рассчитать"}
           disabled={disableButton}
@@ -87,7 +89,7 @@ export const FibonacciPage: FC = () => {
       </form>
       <div className={styles.circles}>
         {fibArr.map((item, index) => {
-          return <Circle letter={"" + item} key={index} index={index} />;
+          return <Circle data-testid="circle" letter={"" + item} key={index} index={index} />;
         })}
       </div>
     </SolutionLayout>

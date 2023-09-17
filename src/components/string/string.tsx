@@ -55,6 +55,7 @@ export const StringComponent: FC = () => {
     <SolutionLayout title="Строка">
       <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
         <Input
+          data-testid="input"
           extraClass={styles.input}
           onChange={onChange}
           maxLength={11}
@@ -66,6 +67,7 @@ export const StringComponent: FC = () => {
           value={inputStr}
         />
         <Button
+          data-testid="reverse-button"
           onClick={onClick}
           text={"Развернуть"}
           disabled={inputStr.length > 0 ? false : true}
