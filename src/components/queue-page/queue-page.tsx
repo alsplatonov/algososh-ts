@@ -93,6 +93,7 @@ export const QueuePage: React.FC = () => {
       <section className={styles.main}>
         <form className={styles.form} onSubmit={(e) => addItem(e, value)}>
           <Input
+            data-testid="input"
             isLimitText={true}
             placeholder={"Введите значение"}
             maxLength={4}
@@ -100,18 +101,21 @@ export const QueuePage: React.FC = () => {
             value={value}
           />
           <Button
+            data-testid="add-button"
             disabled={value.length <= 0 || addInProgress || deleteInProgress}
             onClick={(e) => addItem(e, value)}
             isLoader={addInProgress}
             text={"Добавить"}
           />
           <Button
+            data-testid="delete-button"
             disabled={queue.current.isEmpty() || deleteInProgress || addInProgress}
             onClick={deleteItem}
             isLoader={deleteInProgress}
             text={"Удалить"}
           />
           <Button
+            data-testid="clear-button"
             disabled={(queue.current.isEmpty() && queueState.every((item) => item.data === "")) || addInProgress || deleteInProgress}
             text={"Очистить"}
             onClick={clearQueue}
@@ -119,7 +123,7 @@ export const QueuePage: React.FC = () => {
         </form>
         <ul className={styles.circles}>
           {queueState.map((item, index) => (
-            <li key={index} className={styles.item}>
+            <li data-testid="queue-item" key={index} className={styles.item}>
               <Circle
                 state={item.state}
                 index={index}
