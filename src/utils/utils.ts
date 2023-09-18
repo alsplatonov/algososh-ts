@@ -93,6 +93,11 @@ export function* bubbleSort(arr: ArrayElement[], direction: Direction): Generato
 
 
 export function* selectSort(arr: ArrayElement[], direction: Direction): Generator<ArrayElement[]> {
+  if (arr.length === 0) {
+    yield arr.slice(); 
+    return;
+  }
+  
   let arrayInProgress = [...arr];
 
   for (let i = 0; i < arrayInProgress.length - 1; i++) {

@@ -10,6 +10,7 @@ exports[`Circle component snapshots renders as small 1`] = `
     />
     <div
       class="circle  small default"
+      data-testid="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -35,6 +36,7 @@ exports[`Circle component snapshots renders in changing state 1`] = `
     />
     <div
       class="circle   changing"
+      data-testid="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -60,6 +62,7 @@ exports[`Circle component snapshots renders in default state 1`] = `
     />
     <div
       class="circle   default"
+      data-testid="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -85,6 +88,7 @@ exports[`Circle component snapshots renders in modified state 1`] = `
     />
     <div
       class="circle   modified"
+      data-testid="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -114,6 +118,7 @@ exports[`Circle component snapshots renders with head as React element 1`] = `
     </div>
     <div
       class="circle   default"
+      data-testid="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -141,6 +146,7 @@ exports[`Circle component snapshots renders with head as string 1`] = `
     </div>
     <div
       class="circle   default"
+      data-testid="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -166,6 +172,7 @@ exports[`Circle component snapshots renders with index 1`] = `
     />
     <div
       class="circle   default"
+      data-testid="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -193,6 +200,7 @@ exports[`Circle component snapshots renders with letter 1`] = `
     />
     <div
       class="circle   default"
+      data-testid="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -220,6 +228,7 @@ exports[`Circle component snapshots renders with tail as React element 1`] = `
     />
     <div
       class="circle   default"
+      data-testid="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -249,6 +258,7 @@ exports[`Circle component snapshots renders with tail as string 1`] = `
     />
     <div
       class="circle   default"
+      data-testid="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -276,6 +286,7 @@ exports[`Circle component snapshots renders without a letter 1`] = `
     />
     <div
       class="circle   default"
+      data-testid="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
