@@ -52,6 +52,7 @@ export const ListPage: React.FC = () => {
   const insertHead = async (value: typeof inputValue) => {
     setInsertToHeadInProgress(true);
     const listStateCopy = [...listState];
+    // listStateCopy[0].state = ElementStates.Changing;////
     listStateCopy[0].insertProgress = true;
     listStateCopy[0].tempItem = value;
     setListState([...listStateCopy]);
@@ -69,7 +70,7 @@ export const ListPage: React.FC = () => {
     });
     setListState([...listStateCopy]);
 
-    await setDelay(DELAY_IN_MS);
+    await setDelay(SHORT_DELAY_IN_MS);
 
     listStateCopy[0].state = ElementStates.Default;
     list.current.insertToHead(new ListNode(value));
@@ -277,7 +278,7 @@ export const ListPage: React.FC = () => {
     removeHeadInProgress ||
     removeTailInProgress ||
     insertAtIndexInProgress ||
-    removeAtIndexInProgress ;
+    removeAtIndexInProgress;
 
 
   return (
@@ -286,6 +287,7 @@ export const ListPage: React.FC = () => {
         <form className={styles.form}>
           <div className={styles.form_value}>
             <Input
+              data-testid="main-input"
               placeholder={"Введите значение"}
               isLimitText={true}
               maxLength={4}
@@ -295,6 +297,7 @@ export const ListPage: React.FC = () => {
               value={inputValue}
             />
             <Button
+              data-testid="btn-addToHead"
               disabled={
                 inputValue.length <= 0 ||
                 isInProgress
@@ -304,6 +307,7 @@ export const ListPage: React.FC = () => {
               text={"Добавить в head"}
             />
             <Button
+              data-testid="btn-addToTail"
               disabled={
                 inputValue.length <= 0 ||
                 isInProgress
@@ -313,6 +317,7 @@ export const ListPage: React.FC = () => {
               text={"Добавить в tail"}
             />
             <Button
+              data-testid="btn-delFromHead"
               disabled={
                 listState.length < 2 ||
                 isInProgress
@@ -322,6 +327,7 @@ export const ListPage: React.FC = () => {
               onClick={removeHead}
             />
             <Button
+              data-testid="btn-delFromTail"
               disabled={
                 listState.length < 2 ||
                 isInProgress
@@ -333,6 +339,7 @@ export const ListPage: React.FC = () => {
           </div>
           <div className={styles.form_index}>
             <Input
+              data-testid="index-input"
               type={"number"}
               placeholder={"Введите индекс"}
               max={list.current.getData().array.length - 1}
@@ -343,6 +350,7 @@ export const ListPage: React.FC = () => {
               value={inputIndex}
             />
             <Button
+              data-testid="btn-addByIndex"
               disabled={
                 inputValue.length <= 0 || Number(inputIndex) > list.current.getData().array.length - 1 || Number(inputIndex) < 0 ||
                 !inputIndex ||
@@ -360,6 +368,7 @@ export const ListPage: React.FC = () => {
               text={"Добавить по индексу"}
             />
             <Button
+              data-testid="btn-delByIndex"
               disabled={
                 listState.length < 2 || Number(inputIndex) > list.current.getData().array.length - 1 || Number(inputIndex) < 0 ||
                 !inputIndex ||
@@ -387,12 +396,14 @@ export const ListPage: React.FC = () => {
                   key={index}
                 >
                   <div
+                    // data-testid={item.insertProgress ? 'circleSmall' : 'circleNormal'}
                     className={`${item.insertProgress
                       ? `${styles.up_circle} ${styles.up_circle__visible}`
                       : `${styles.up_circle}`
                       }`}
                   >
                     <Circle
+                      // data-testid="circleSmall"
                       isSmall={true}
                       letter={item.tempItem}
                       state={ElementStates.Changing}
@@ -400,6 +411,7 @@ export const ListPage: React.FC = () => {
                   </div>
                   <div className={styles.circle}>
                     <Circle
+                      // data-testid="circleNormal"
                       head={item.insertProgress ? "" : index === 0 ? "head" : ""}
                       index={index}
                       state={item.state}
@@ -408,12 +420,14 @@ export const ListPage: React.FC = () => {
                     />
                   </div>
                   <div
+
                     className={`${item.removeProgress
                       ? `${styles.down_circle} ${styles.down_circle__visible}`
                       : `${styles.down_circle}`
                       }`}
                   >
                     <Circle
+                      // data-testid="circleSmall"
                       isSmall={true}
                       letter={item.tempItem}
                       state={ElementStates.Changing}
@@ -435,6 +449,7 @@ export const ListPage: React.FC = () => {
                     }`}
                 >
                   <Circle
+                    // data-testid="circleSmall"
                     isSmall={true}
                     letter={item.tempItem}
                     state={ElementStates.Changing}
@@ -442,6 +457,7 @@ export const ListPage: React.FC = () => {
                 </div>
                 <div className={styles.circle}>
                   <Circle
+                    // data-testid="circleNormal"
                     head={item.insertProgress ? "" : index === 0 ? "head" : ""}
                     index={index}
                     state={item.state}
@@ -453,12 +469,14 @@ export const ListPage: React.FC = () => {
                 </div>
 
                 <div
+                  
                   className={`${item.removeProgress
                     ? `${styles.down_circle} ${styles.down_circle__visible}`
                     : `${styles.down_circle}`
                     }`}
                 >
                   <Circle
+                    // data-testid="circleSmall"
                     isSmall={true}
                     letter={item.tempItem}
                     state={ElementStates.Changing}
