@@ -396,14 +396,12 @@ export const ListPage: React.FC = () => {
                   key={index}
                 >
                   <div
-                    // data-testid={item.insertProgress ? 'circleSmall' : 'circleNormal'}
                     className={`${item.insertProgress
                       ? `${styles.up_circle} ${styles.up_circle__visible}`
                       : `${styles.up_circle}`
                       }`}
                   >
                     <Circle
-                      // data-testid="circleSmall"
                       isSmall={true}
                       letter={item.tempItem}
                       state={ElementStates.Changing}
@@ -411,7 +409,6 @@ export const ListPage: React.FC = () => {
                   </div>
                   <div className={styles.circle}>
                     <Circle
-                      // data-testid="circleNormal"
                       head={item.insertProgress ? "" : index === 0 ? "head" : ""}
                       index={index}
                       state={item.state}
@@ -427,7 +424,6 @@ export const ListPage: React.FC = () => {
                       }`}
                   >
                     <Circle
-                      // data-testid="circleSmall"
                       isSmall={true}
                       letter={item.tempItem}
                       state={ElementStates.Changing}
@@ -449,7 +445,6 @@ export const ListPage: React.FC = () => {
                     }`}
                 >
                   <Circle
-                    // data-testid="circleSmall"
                     isSmall={true}
                     letter={item.tempItem}
                     state={ElementStates.Changing}
@@ -457,7 +452,6 @@ export const ListPage: React.FC = () => {
                 </div>
                 <div className={styles.circle}>
                   <Circle
-                    // data-testid="circleNormal"
                     head={item.insertProgress ? "" : index === 0 ? "head" : ""}
                     index={index}
                     state={item.state}
@@ -476,7 +470,6 @@ export const ListPage: React.FC = () => {
                     }`}
                 >
                   <Circle
-                    // data-testid="circleSmall"
                     isSmall={true}
                     letter={item.tempItem}
                     state={ElementStates.Changing}
