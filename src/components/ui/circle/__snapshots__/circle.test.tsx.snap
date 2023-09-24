@@ -1,0 +1,325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Circle component snapshots renders as small 1`] = `
+<DocumentFragment>
+  <div
+    class="content "
+  >
+    <div
+      class="text text_type_input text_color_input mb-4 absolute head element"
+      data-testid="circle-head"
+    />
+    <div
+      class="circle  small default"
+      data-testid="circleUpSmall"
+    >
+      <p
+        class="text text_type_circle text_color_input letter"
+      />
+    </div>
+    <p
+      class="text text_type_input text_color_input mt-4 absolute index"
+    />
+    <div
+      class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-testid="circle-tail"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Circle component snapshots renders in changing state 1`] = `
+<DocumentFragment>
+  <div
+    class="content "
+  >
+    <div
+      class="text text_type_input text_color_input mb-4 absolute head element"
+      data-testid="circle-head"
+    />
+    <div
+      class="circle   changing"
+      data-testid="circle"
+    >
+      <p
+        class="text text_type_circle text_color_input letter"
+      />
+    </div>
+    <p
+      class="text text_type_input text_color_input mt-4 absolute index"
+    />
+    <div
+      class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-testid="circle-tail"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Circle component snapshots renders in default state 1`] = `
+<DocumentFragment>
+  <div
+    class="content "
+  >
+    <div
+      class="text text_type_input text_color_input mb-4 absolute head element"
+      data-testid="circle-head"
+    />
+    <div
+      class="circle   default"
+      data-testid="circle"
+    >
+      <p
+        class="text text_type_circle text_color_input letter"
+      />
+    </div>
+    <p
+      class="text text_type_input text_color_input mt-4 absolute index"
+    />
+    <div
+      class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-testid="circle-tail"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Circle component snapshots renders in modified state 1`] = `
+<DocumentFragment>
+  <div
+    class="content "
+  >
+    <div
+      class="text text_type_input text_color_input mb-4 absolute head element"
+      data-testid="circle-head"
+    />
+    <div
+      class="circle   modified"
+      data-testid="circle"
+    >
+      <p
+        class="text text_type_circle text_color_input letter"
+      />
+    </div>
+    <p
+      class="text text_type_input text_color_input mt-4 absolute index"
+    />
+    <div
+      class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-testid="circle-tail"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Circle component snapshots renders with head as React element 1`] = `
+<DocumentFragment>
+  <div
+    class="content "
+  >
+    <div
+      class="text text_type_input text_color_input mb-4 absolute head element"
+      data-testid="circle-head"
+    >
+      <div>
+        Head Element
+      </div>
+    </div>
+    <div
+      class="circle   default"
+      data-testid="circle"
+    >
+      <p
+        class="text text_type_circle text_color_input letter"
+      />
+    </div>
+    <p
+      class="text text_type_input text_color_input mt-4 absolute index"
+    />
+    <div
+      class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-testid="circle-tail"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Circle component snapshots renders with head as string 1`] = `
+<DocumentFragment>
+  <div
+    class="content "
+  >
+    <div
+      class="text text_type_input text_color_input mb-4 absolute head string"
+      data-testid="circle-head"
+    >
+      Head
+    </div>
+    <div
+      class="circle   default"
+      data-testid="circle"
+    >
+      <p
+        class="text text_type_circle text_color_input letter"
+      />
+    </div>
+    <p
+      class="text text_type_input text_color_input mt-4 absolute index"
+    />
+    <div
+      class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-testid="circle-tail"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Circle component snapshots renders with index 1`] = `
+<DocumentFragment>
+  <div
+    class="content "
+  >
+    <div
+      class="text text_type_input text_color_input mb-4 absolute head element"
+      data-testid="circle-head"
+    />
+    <div
+      class="circle   default"
+      data-testid="circle"
+    >
+      <p
+        class="text text_type_circle text_color_input letter"
+      />
+    </div>
+    <p
+      class="text text_type_input text_color_input mt-4 absolute index"
+    >
+      5
+    </p>
+    <div
+      class="text text_type_input text_color_input mt-4 absolute tail60 element"
+      data-testid="circle-tail"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Circle component snapshots renders with letter 1`] = `
+<DocumentFragment>
+  <div
+    class="content "
+  >
+    <div
+      class="text text_type_input text_color_input mb-4 absolute head element"
+      data-testid="circle-head"
+    />
+    <div
+      class="circle   default"
+      data-testid="circle"
+    >
+      <p
+        class="text text_type_circle text_color_input letter"
+      >
+        A
+      </p>
+    </div>
+    <p
+      class="text text_type_input text_color_input mt-4 absolute index"
+    />
+    <div
+      class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-testid="circle-tail"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Circle component snapshots renders with tail as React element 1`] = `
+<DocumentFragment>
+  <div
+    class="content "
+  >
+    <div
+      class="text text_type_input text_color_input mb-4 absolute head element"
+      data-testid="circle-head"
+    />
+    <div
+      class="circle   default"
+      data-testid="circle"
+    >
+      <p
+        class="text text_type_circle text_color_input letter"
+      />
+    </div>
+    <p
+      class="text text_type_input text_color_input mt-4 absolute index"
+    />
+    <div
+      class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-testid="circle-tail"
+    >
+      <div>
+        Tail Element
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Circle component snapshots renders with tail as string 1`] = `
+<DocumentFragment>
+  <div
+    class="content "
+  >
+    <div
+      class="text text_type_input text_color_input mb-4 absolute head element"
+      data-testid="circle-head"
+    />
+    <div
+      class="circle   default"
+      data-testid="circle"
+    >
+      <p
+        class="text text_type_circle text_color_input letter"
+      />
+    </div>
+    <p
+      class="text text_type_input text_color_input mt-4 absolute index"
+    />
+    <div
+      class="text text_type_input text_color_input mt-4 absolute tail30 string"
+      data-testid="circle-tail"
+    >
+      Tail
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Circle component snapshots renders without a letter 1`] = `
+<DocumentFragment>
+  <div
+    class="content "
+  >
+    <div
+      class="text text_type_input text_color_input mb-4 absolute head element"
+      data-testid="circle-head"
+    />
+    <div
+      class="circle   default"
+      data-testid="circle"
+    >
+      <p
+        class="text text_type_circle text_color_input letter"
+      />
+    </div>
+    <p
+      class="text text_type_input text_color_input mt-4 absolute index"
+    />
+    <div
+      class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-testid="circle-tail"
+    />
+  </div>
+</DocumentFragment>
+`;

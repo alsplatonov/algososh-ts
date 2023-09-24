@@ -87,12 +87,14 @@ export const StackPage: FC = () => {
       <section className={styles.main}>
         <form className={styles.form} onSubmit={(e) => addItem(e, value)}>
           <Input
+            data-testid="input"
             isLimitText={true}
             maxLength={4}
             onChange={(e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
             value={value}
           />
           <Button
+            data-testid="add-button"
             disabled={value.length <= 0 || stackState.length > 19 || addInProgress || deleteInProgress}
             onClick={(e) => {
               addItem(e, value);
@@ -101,12 +103,14 @@ export const StackPage: FC = () => {
             text={"Добавить"}
           />
           <Button
+            data-testid="delete-button"
             disabled={stack.getSize() <= 0 || addInProgress || deleteInProgress}
             onClick={deleteItem}
             isLoader={deleteInProgress}
             text={"Удалить"}
           />
           <Button
+            data-testid="clear-button"
             disabled={stack.getSize() <= 0 || addInProgress || deleteInProgress}
             text={"Очистить"}
             onClick={() => {
@@ -117,8 +121,9 @@ export const StackPage: FC = () => {
         </form>
         <ul className={styles.stack}>
           {stackState.map((item, index) => (
-            <li key={index} className={styles.item}>
+            <li data-testid="stack-item" key={index} className={styles.item}>
               <Circle
+                
                 state={item.state}
                 index={index}
                 letter={item.item}
